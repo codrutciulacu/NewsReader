@@ -51,7 +51,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     }
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
-        final ArticleListItemBinding binding;
+        private final ArticleListItemBinding binding;
 
         public NewsViewHolder(ArticleListItemBinding binding) {
             super(binding.getRoot());

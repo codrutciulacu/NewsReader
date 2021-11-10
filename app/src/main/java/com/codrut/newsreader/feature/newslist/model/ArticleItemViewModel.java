@@ -6,13 +6,10 @@ import com.codrut.newsreader.R;
 
 public class ArticleItemViewModel extends ViewModel {
 
-    public String pictureUrl;
-    public String title;
-    public String contentPreview;
-    public int placeholder;
-
-    public ArticleItemViewModel() {
-    }
+    public final String pictureUrl;
+    public final String title;
+    public final String contentPreview;
+    public final int placeholder;
 
     public ArticleItemViewModel(String pictureUrl, String title, String contentPreview) {
         this.pictureUrl = pictureUrl;
