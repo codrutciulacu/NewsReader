@@ -1,8 +1,10 @@
 package com.codrut.newsreader.view.bindings;
 
 import android.util.Log;
+import android.view.View;
 
 import androidx.databinding.BindingAdapter;
+import androidx.databinding.ObservableBoolean;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,12 +22,16 @@ public class RecyclerViewBinding {
 
         if (adapter == null) {
             adapter = new NewsAdapter(handler);
-            LinearLayoutManager layoutManager = new LinearLayoutManager(recyclerView.getContext());
-            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
             recyclerView.setAdapter(adapter);
         }
 
         adapter.setItems(articles);
         Log.d("RecyclerViewBinding", "" + recyclerView.getAdapter().getItemCount());
+    }
+
+    @BindingAdapter("visible")
+    public static void setVisible(RecyclerView recyclerView, ObservableBoolean value) {
+        recyclerView.setVisibility(!value.get() ? View.VISIBLE : View.GONE);
     }
 }

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
     <data>
-
         <variable
             name="viewModel"
             type="com.codrut.newsreader.feature.newslist.model.ArticleItemViewModel" />
@@ -61,5 +59,4 @@
                 tools:text="@string/article_content_placeholder" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </layout>

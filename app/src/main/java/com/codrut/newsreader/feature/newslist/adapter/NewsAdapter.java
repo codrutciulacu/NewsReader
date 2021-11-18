@@ -19,7 +19,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     private final NewsHandler handler;
     private List<ArticleItemViewModel> articleModelList;
 
-
     public NewsAdapter(NewsHandler handler) {
         this.handler = handler;
         articleModelList = new ArrayList<>();
@@ -28,8 +27,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @NonNull
     @Override
     public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ArticleListItemBinding binding = ArticleListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-
+        ArticleListItemBinding binding = ArticleListItemBinding
+                .inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new NewsViewHolder(binding);
     }
 
