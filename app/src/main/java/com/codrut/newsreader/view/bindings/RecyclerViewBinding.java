@@ -1,9 +1,6 @@
 package com.codrut.newsreader.view.bindings;
 
-import android.view.View;
-
 import androidx.databinding.BindingAdapter;
-import androidx.databinding.ObservableBoolean;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,10 +23,5 @@ public class RecyclerViewBinding {
         }
 
         adapter.setItems(articles);
-    }
-
-    @BindingAdapter("visible")
-    public static void setVisible(RecyclerView recyclerView, ObservableBoolean value) {
-        recyclerView.setVisibility(!value.get() ? View.VISIBLE : View.GONE);
     }
 }
