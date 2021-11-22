@@ -61,8 +61,8 @@ public class NewsListViewModel extends AndroidViewModel implements NewsHandler, 
     }
 
     @Override
-    public void onItemClick() {
-        Log.d(this.getClass().getSimpleName(), "Item is clicked");
+    public void onItemClick(ArticleItemViewModel item) {
+        Log.d(this.getClass().getSimpleName(), item.pictureUrl);
     }
 
     @Override

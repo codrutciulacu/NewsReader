@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:elevation="8dp"
-        android:onClickListener="@{() -> handler.onItemClick()}"
+        android:onClickListener="@{() -> handler.onItemClick(viewModel)}"
         app:cardCornerRadius="8dp">
 
         <LinearLayout
@@ -28,7 +28,7 @@
             <ImageView
                 android:id="@+id/article_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:contentDescription="@string/article_image_content_description"
                 android:scaleType="centerCrop"
                 android:src="@drawable/placeholder"

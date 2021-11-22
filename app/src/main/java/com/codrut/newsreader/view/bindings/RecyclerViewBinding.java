@@ -1,6 +1,5 @@
 package com.codrut.newsreader.view.bindings;
 
-import android.util.Log;
 import android.view.View;
 
 import androidx.databinding.BindingAdapter;
@@ -27,7 +26,6 @@ public class RecyclerViewBinding {
         }
 
         adapter.setItems(articles);
-        Log.d("RecyclerViewBinding", "" + recyclerView.getAdapter().getItemCount());
     }
 
     @BindingAdapter("visible")
