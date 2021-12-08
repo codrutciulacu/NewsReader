@@ -10,4 +10,5 @@ public interface NewsApi {
 
     @GET("/v2/top-headlines")
     Single<ArticleListDto> getNewsArticles(@Query("apiKey") String apiKey, @Query("language") String enLanguageFilter);
+
 }

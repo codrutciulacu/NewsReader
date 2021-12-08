@@ -20,6 +20,8 @@ import com.codrut.newsreader.feature.newslist.model.mapper.ArticleToVMListMapper
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.subjects.PublishSubject;
 
 public class NewsListViewModel extends AndroidViewModel implements NewsHandler, DefaultLifecycleObserver {
 
@@ -27,12 +29,15 @@ public class NewsListViewModel extends AndroidViewModel implements NewsHandler, 
     public final ObservableField<String> errorMessage;
     private final NewsRepository repository;
     public ObservableList<ArticleItemViewModel> newsList = new ObservableArrayList<>();
+    public final PublishSubject<ArticleItemViewModel> events;
+    private Disposable disposable;
 
     public NewsListViewModel(@NonNull Application application, NewsRepository repository) {
         super(application);
         this.repository = repository;
         this.errorMessage = new ObservableField<>();
         isLoading = new ObservableBoolean();
+        this.events = PublishSubject.create();
     }
 
     @Override
@@ -43,7 +48,7 @@ public class NewsListViewModel extends AndroidViewModel implements NewsHandler, 
     @SuppressLint("CheckResult")
     public void loadData() {
         isLoading.set(true);
-        repository.getNewsArticles()
+        disposable = repository.getNewsArticles()
                 .map(new ArticleToVMListMapper())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::onNewsArticlesReceived, this::onNewsArticlesError);
@@ -61,12 +66,14 @@ public class NewsListViewModel extends AndroidViewModel implements NewsHandler, 
     }
 
     @Override
-    public void onItemClick(ArticleItemViewModel item) {
-        Log.d(this.getClass().getSimpleName(), item.pictureUrl);
+    public void onItemClick(ArticleItemViewModel itemViewModel) {
+        events.onNext(itemViewModel);
     }
 
     @Override
     protected void onCleared() {
         super.onCleared();
+        if (disposable != null)
+            disposable.dispose();
     }
 }

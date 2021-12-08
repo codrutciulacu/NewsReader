@@ -29,4 +29,9 @@ public class NewsRepositoryImpl implements NewsRepository {
                 .onErrorResumeNext(localSource.getArticleList());
     }
 
+    @Override
+    public Single<Article> getArticleById(Integer id) {
+        return localSource.getArticleById(id);
+    }
+
 }

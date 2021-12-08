@@ -8,4 +8,6 @@ import io.reactivex.Single;
 
 public interface NewsRepository {
     Single<List<Article>> getNewsArticles();
+
+    Single<Article> getArticleById(Integer id);
 }

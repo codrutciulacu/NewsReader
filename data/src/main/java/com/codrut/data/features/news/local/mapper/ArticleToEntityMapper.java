@@ -6,7 +6,7 @@ import com.codrut.data.features.news.model.Article;
 public class ArticleToEntityMapper {
 
     public Article entityToArticle(ArticleEntity entity) {
-        return new Article(entity.imageUrl, entity.title, entity.content, entity.description);
+        return new Article(entity.id, entity.imageUrl, entity.title, entity.content, entity.description);
     }
 
     public ArticleEntity articleToEntity(Article article) {

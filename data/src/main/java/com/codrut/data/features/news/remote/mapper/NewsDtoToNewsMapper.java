@@ -21,6 +21,7 @@ public class NewsDtoToNewsMapper implements Function<ArticleListDto, List<Articl
 
         for (ArticleDto dto : articleDtos.articles) {
             Article article = new Article(
+                    null,
                     dto.urlToImage != null ? dto.urlToImage : "", //Adding default values for business model
                     dto.title != null ? dto.title : "",
                     dto.content != null ? dto.content : "",

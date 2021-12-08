@@ -14,7 +14,7 @@ public class ArticleToVMListMapper implements Function<List<Article>, List<Artic
     @Override
     public List<ArticleItemViewModel> apply(@NonNull List<Article> articles) {
         return articles.stream()
-                .map(article -> new ArticleItemViewModel(article.imageUrl, article.title, article.description))
+                .map(article -> new ArticleItemViewModel(article.id, article.imageUrl, article.title, article.description, article.content))
                 .collect(Collectors.toList());
     }
 }
